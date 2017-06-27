@@ -13,7 +13,7 @@ export default function persist(store) {
   return persistStore(store, {
     storage: AsyncStorage,
     whitelist: ['CONFIG'],
-    transforms: [configFilter]
+    // transforms: [configFilter]
   }, () => {
     // TODO: add function after rehydration is finished
   })

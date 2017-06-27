@@ -29,5 +29,10 @@ function onRehydrate(state, action) {
   var incoming = action.payload.CONFIG
   if (!incoming) return state
 
+  let domain = incoming.domain
+  if (domain) {
+    state = state.set('domain', domain)
+  }
+
   return state
 }
