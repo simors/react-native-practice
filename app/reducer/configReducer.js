@@ -12,6 +12,8 @@ export default function configReducer(state = initialState, action) {
   switch (action.type) {
     case configActionTypes.FETCH_DOMAIN_SUCCESS:
       return handleSaveDomain(state, action)
+    case configActionTypes.FETCH_POSITION_SUCCESS:
+      return handleSaveLocation(state, action)
     case REHYDRATE:
       return onRehydrate(state, action)
     default:
@@ -22,6 +24,12 @@ export default function configReducer(state = initialState, action) {
 function handleSaveDomain(state, action) {
   let domain = action.payload.domain
   state = state.set('domain', domain)
+  return state
+}
+
+function handleSaveLocation(state, action) {
+  let location = action.payload.location
+  state = state.set('location', location)
   return state
 }
 
