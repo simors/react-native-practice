@@ -4,6 +4,7 @@
 import { StackNavigator, TabNavigator } from 'react-navigation'
 import Home from './Home'
 import Mine from './Mine'
+import WebViewer from './Web'
 
 const TabContainer = TabNavigator({
   Main: {screen: Home},
@@ -33,6 +34,9 @@ const App = StackNavigator({
     navigationOptions: {
       headerLeft: null
     }
+  },
+  WebViewer: {
+    screen: WebViewer,
   },
 }, {
   headerMode: 'screen',

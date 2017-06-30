@@ -26,6 +26,11 @@ class Home extends Component {
     this.props.requestPosition({})
   }
 
+  jumpToWebView() {
+    let {navigate} = this.props.navigation
+    navigate('WebViewer')
+  }
+
   renderLocation() {
     let location = this.props.location
     if (!location) {
@@ -49,6 +54,12 @@ class Home extends Component {
           </TouchableOpacity>
         </View>
         {this.renderLocation()}
+        <View style={styles.btnView}>
+          <TouchableOpacity style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}
+                            onPress={() => {this.jumpToWebView()}}>
+            <Text style={{color: 'white'}}>打开网页</Text>
+          </TouchableOpacity>
+        </View>
       </View>
     )
   }

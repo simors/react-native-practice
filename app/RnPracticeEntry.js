@@ -5,6 +5,7 @@ import React, {Component} from 'react'
 import {
   View,
   BackHandler,
+  ToastAndroid,
 } from 'react-native'
 import {Provider} from 'react-redux'
 import {store} from './store/persistStore'
@@ -16,13 +17,20 @@ export default class RnPracticeEntry extends Component {
   }
 
   componentWillMount() {
-    BackHandler.addEventListener('hardwareBackPress', () => {
-      return false
-    })
+    BackHandler.addEventListener('hardwareBackPress', this._onBackAndroid)
   }
 
   componentWillUnmount() {
-    BackHandler.removeEventListener('hardwareBackPress')
+    BackHandler.removeEventListener('hardwareBackPress', this._onBackAndroid)
+  }
+
+  _onBackAndroid = () => {
+    if (this.lastBackPressed && this.lastBackPressed + 2000 >= Date.now()) {
+      return false
+    }
+    this.lastBackPressed = Date.now();
+    ToastAndroid.show('再按一次退出应用', ToastAndroid.SHORT)
+    return true
   }
 
   render() {
