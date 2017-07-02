@@ -4,9 +4,11 @@
 
 import {combineReducers} from 'redux'
 import configReducer from './configReducer'
+import inputFormReducer from './inputFormReducer'
 
 const rootReducers = combineReducers({
   CONFIG: configReducer,
+  INPUTFORM: inputFormReducer,
 })
 
 const rootReducersWrapper = (state, action) => {
