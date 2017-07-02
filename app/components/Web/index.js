@@ -22,7 +22,7 @@ export default class WebViewer extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <WebView style={{flex: 1}} source={{uri: 'http://www.baidu.com'}}/>
+        <WebView style={{flex: 1}} source={{uri: 'https://www.baidu.com'}}/>
       </View>
     )
   }
